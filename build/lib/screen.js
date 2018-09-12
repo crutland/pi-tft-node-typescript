@@ -11,7 +11,14 @@ class Screen {
     updateDisplay() { this.fb.blit(); }
     clear() { this.fb.clear(); }
     fillScreen(color, render = false) {
-        this.setColor(color);
+        let c;
+        if (typeof color === "string") {
+            c = color_1.parseColor(color);
+        }
+        else {
+            c = color;
+        }
+        this.setColor(c);
         this.fb.rect(0, 0, this.size.width, this.size.height);
         if (render)
             this.updateDisplay();
