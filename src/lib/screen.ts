@@ -16,8 +16,14 @@ export default class Screen {
   private updateDisplay() { this.fb.blit(); }
   private clear() { this.fb.clear(); }
 
-  fillScreen(color: Color, render = false) {
-    this.setColor(color);
+  fillScreen(color: Color | string, render = false) {
+    let c: Color;
+    if(typeof color === "string") {
+      c = parseColor(color);
+    } else {
+      c = color;
+    }
+    this.setColor(c);
     this.fb.rect(0, 0, this.size.width, this.size.height);
     if (render)
       this.updateDisplay();
