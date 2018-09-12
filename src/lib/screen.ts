@@ -1,4 +1,4 @@
-import pitft from "pitft";
+import * as pitft from "pitft";
 import { Color, parseColor, white } from "../models/color";
 import Size from "../models/size";
 

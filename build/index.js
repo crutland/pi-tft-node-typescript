@@ -1,11 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const express_1 = require("express");
-const body_parser_1 = require("body-parser");
+const express = require("express");
+const bodyParser = require("body-parser");
 const screen_1 = require("./lib/screen");
-const app = express_1.default();
-app.use(body_parser_1.default.json());
-app.use(body_parser_1.default.urlencoded({ extended: false }));
+const app = express();
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 const screen = new screen_1.default();
 app.get("/", (req, res) => {
     res.json({ message: "hello world from the device!" });

@@ -1,10 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const pitft_1 = require("pitft");
+const pitft = require("pitft");
 const color_1 = require("../models/color");
 class Screen {
     constructor() {
-        this.fb = pitft_1.default("/dev/fb1", true);
+        this.fb = pitft("/dev/fb1", true);
         this.size = this.fb.size();
     }
     setColor(color) { this.fb.color(color.red, color.blue, color.green); }
